@@ -1,0 +1,193 @@
+/* ====== RESET ====== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ====== FUNDO ANIMADO ====== */
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #3b82f6, #0ea5e9, #06b6d4);
+  background-size: 300% 300%;
+  animation: gradientFlow 10s ease infinite;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* ====== CONTAINER PRINCIPAL ====== */
+.login-container {
+  width: 100%;
+  max-width: 420px;
+  height: 85vh; /* agora ocupa mais espaço vertical */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  box-shadow: 0 8px 60px rgba(0, 0, 0, 0.25);
+  padding: 3rem 2.5rem;
+  text-align: center;
+  animation: fadeIn 0.7s ease forwards;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ====== TÍTULO ====== */
+.login-box h1 {
+  font-weight: 600;
+  font-size: 2.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.subtitle {
+  color: #dbeafe;
+  font-size: 1rem;
+  margin-bottom: 2.2rem;
+}
+
+/* ====== FORMULÁRIOS ====== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Inputs */
+input {
+  padding: 1rem;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+input:focus {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.5);
+}
+
+/* ====== BOTÃO ====== */
+button {
+  padding: 1rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  cursor: pointer;
+  background: linear-gradient(90deg, #0ea5e9, #3b82f6);
+  color: #fff;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 12px rgba(14, 165, 233, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efeito neon suave */
+button::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, transparent 60%);
+  opacity: 0;
+  animation: glowPulse 3s infinite ease-in-out;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(14, 165, 233, 0.6);
+}
+
+/* ====== LINKS DE TROCA LOGIN/CADASTRO ====== */
+.switch {
+  font-size: 0.9rem;
+  color: #e0e7ff;
+  margin-top: 1rem;
+}
+
+.switch a {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.switch a:hover {
+  opacity: 0.7;
+}
+
+/* ====== VISIBILIDADE ====== */
+.hidden {
+  display: none;
+}
+
+.active {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ====== ANIMAÇÕES ====== */
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Brilho pulsante */
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* ====== RESPONSIVIDADE ====== */
+@media (max-width: 480px) {
+  .login-container {
+    margin: 1rem;
+    padding: 2rem;
+    height: auto;
+  }
+
+  .login-box h1 {
+    font-size: 1.9rem;
+  }
+
+  button {
+    font-size: 0.95rem;
+  }
+}

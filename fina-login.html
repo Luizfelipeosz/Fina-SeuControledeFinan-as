@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fina — Login</title>
+  <link rel="stylesheet" href="fina-login.css" />
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-box">
+      <h1>💰 Fina</h1>
+      <p class="subtitle">Acesse sua conta ou crie uma nova</p>
+
+      <!-- Formulário de Login -->
+      <form id="login-form" class="active">
+        <input type="email" id="login-email" placeholder="E-mail" required />
+        <input type="password" id="login-password" placeholder="Senha" required />
+        <button type="submit">Entrar</button>
+        <p class="switch">Não tem conta? <a href="#" id="show-register">Cadastre-se</a></p>
+      </form>
+
+      <!-- Formulário de Cadastro -->
+      <form id="register-form" class="hidden">
+        <input type="text" id="register-name" placeholder="Nome completo" required />
+        <input type="email" id="register-email" placeholder="E-mail" required />
+        <input type="password" id="register-password" placeholder="Senha" required />
+        <button type="submit">Cadastrar</button>
+        <p class="switch">Já tem conta? <a href="#" id="show-login">Entrar</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="fina-login.js"></script>
+</body>
+</html>

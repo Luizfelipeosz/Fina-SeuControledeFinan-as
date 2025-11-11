@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fina — Controle Financeiro</title>
+  <link rel="stylesheet" href="fina.css" />
+</head>
+<body>
+ <header>
+  <div class="header-content">
+    <h1>💰 Fina</h1>
+
+    <!-- Botões do cabeçalho -->
+    <div class="header-buttons">
+      <button id="contact-btn">Contatos</button>
+      <button id="report-btn" onclick="window.location.href='MeuRelatorio.html'">Relatórios</button>
+    </div>
+
+    <!-- Botão sair à direita -->
+    <button id="logout-btn" class="logout-btn">Sair</button>
+  </div>
+    <!-- Subtítulo destacado-->
+  <p>Seu controle financeiro simples e rápido</p>
+</header>
+
+  <main class="container">
+    <!-- Saldo -->
+    <section class="balance-section">
+      <h2>Saldo atual</h2>
+      <div id="balance">R$ 0,00</div>
+    </section>
+
+    <!-- Formulário de transações -->
+    <section class="form-section">
+      <h2>Adicionar Transação</h2>
+      <form id="transaction-form">
+        <input type="text" id="description" placeholder="Descrição" required />
+        <input type="text" id="amount" placeholder="Valor (use negativo para saída)" required />
+        <button type="submit">Adicionar</button>
+      </form>
+    </section>
+
+    <!-- Resumo -->
+    <section class="summary-section">
+      <div>
+        <h3>Entradas</h3>
+        <div id="income">R$ 0,00</div>
+      </div>
+      <div>
+        <h3>Saídas</h3>
+        <div id="expenses">R$ 0,00</div>
+      </div>
+    </section>
+
+    <!-- Histórico -->
+    <section class="list-section">
+      <h2>Histórico</h2>
+      <ul id="transactions"></ul>
+      <button id="clear">Limpar histórico</button>
+    </section>
+  </main>
+
+  <footer>© 2025 Fina - Luiz Felipe</footer>
+
+  <script src="fina.js"></script>
+  <script>
+    // Redireciona para tela de login ao clicar em "Sair"
+    document.getElementById("logout-btn").addEventListener("click", () => {
+      window.location.href = "fina-login.html";
+    });
+
+    document.getElementById("contact-btn").addEventListener("click", () => {
+    window.location.href = "contatos.html"; // muda para sua página de contatos
+  });
+  </script>
+</body>
+</html>

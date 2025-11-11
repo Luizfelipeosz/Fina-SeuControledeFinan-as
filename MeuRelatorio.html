@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fina — Relatórios</title>
+  <link rel="stylesheet" href="fina.css" />
+  <style>
+    /* estilos locais para a página de relatórios */
+    body { font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin: 0; padding: 0; background: #f5f7fb; color:#222 }
+    header { padding: 18px 20px; background: linear-gradient(90deg,#6d6df1 0%, #4aa3ff 100%); color: white }
+    .container { max-width: 1100px; margin: 20px auto; padding: 16px }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px }
+    .card { background: white; border-radius: 12px; padding: 14px; box-shadow: 0 6px 18px rgba(16,24,40,0.06) }
+    h1 { margin: 0 0 6px 0; font-size: 1.25rem }
+    .controls { display:flex; gap:8px; align-items:center; margin-bottom:10px }
+    .controls input, .controls select, .controls button { padding:8px 10px; border-radius:8px; border:1px solid #e6e9ef; background: #fff }
+    canvas { width:100% !important; height:320px !important }
+    footer { text-align:center; color:#666; padding:18px 0 }
+    @media (max-width:800px) { .row { grid-template-columns: 1fr } canvas{height:260px!important} }
+  </style>
+</head>
+<body>
+ <header>
+  <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center">
+    <div>
+      <h1>📊 Relatórios — Fina</h1>
+      <div style="font-size:0.9rem;opacity:0.95">Visão de gastos por categoria e por mês</div>
+    </div>
+    <div>
+      <button id="back-btn" style="background:none;border:none;color:white;font-weight:600;cursor:pointer;font-size:1rem">
+        ← Voltar 
+        <script>
+         // Redireciona para fina.html ao clicar no botão "Voltar"
+             document.getElementById("back-btn").addEventListener("click", () => {
+             window.location.href = "fina.html";});
+        </script>
+      </button>
+    </div>
+  </div>
+</header>
+
+  <main class="container">
+    <section class="card">
+      <div class="controls">
+        <label for="from">De:</label>
+        <input type="date" id="from" />
+        <label for="to">Até:</label>
+        <input type="date" id="to" />
+        <select id="group-by">
+          <option value="all">Todos os dados</option>
+          <option value="month">Agrupar por mês</option>
+        </select>
+        <button id="refresh">Atualizar</button>
+        <button id="download-png">Exportar PNG</button>
+      </div>
+      <div style="margin-top:6px">Selecione um intervalo de datas para filtrar os dados dos gráficos. Se nenhum dado existir no localStorage, a página usará dados de exemplo.</div>
+    </section>
+
+    <div class="row">
+      <div class="card">
+        <h2>Distribuição por categoria (Pizza)</h2>
+        <canvas id="pieChart"></canvas>
+      </div>
+
+      <div class="card">
+        <h2>Gastos por mês (Barras)</h2>
+        <canvas id="barChart"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Lista resumida</h2>
+      <div id="summary-list"></div>
+    </div>
+  </main>
+
+  <footer>© 2025 Fina - Luiz Felipe</footer>
+
+  <script src="MeuRelatorio.js"></script>
+  
+</body>
+</html>

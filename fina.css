@@ -1,0 +1,410 @@
+/* =========================================================
+ 🌈 PALETA VIBRANTE E VARIÁVEIS GLOBAIS
+========================================================= */
+:root {
+  --bg: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
+  --primary: #00c6ff;
+  --primary-dark: #0072ff;
+  --secondary: #ff8a00;
+  --accent: #f72585;
+  --text: #f1f5f9;
+  --muted: #aab8c2;
+  --success: #06d6a0;
+  --danger: #ef233c;
+  --card-bg: rgba(255, 255, 255, 0.08);
+  --shadow: rgba(0, 0, 0, 0.4);
+  --radius: 12px;
+  --transition: all 0.3s ease;
+}
+
+/* =========================================================
+ 🔄 RESET E BASE
+========================================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.6;
+  transition: var(--transition);
+}
+
+/* =========================================================
+ 🧭 CABEÇALHO
+========================================================= */
+header {
+  width: 100%;
+  text-align: center;
+  padding: 35px 15px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+header p{
+  margin-top: 18px; /* antes era 8px — aumentamos o espaçamento */
+  font-size: 1.2rem; /* maior destaque */
+  font-weight: 600;  /* mais espesso */
+  letter-spacing: 0.3px;
+  color: #fff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+  opacity: 0.95;
+}
+
+
+/* Título centralizado */
+.header-content h1 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+}
+
+/* Botões do lado esquerdo */
+.header-buttons {
+  position: absolute;
+  left: 20px;
+  display: flex;
+  gap: 0.8rem;
+}
+
+.header-buttons button {
+  background: linear-gradient(135deg, #0ea5e9, #3b82f6);
+  border: none;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.header-buttons button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(14, 165, 233, 0.4);
+}
+
+/* Botão SAIR à direita */
+.logout-btn {
+  position: absolute;
+  right: 20px;
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  border: none;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+.logout-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #dc2626, #ef4444);
+  box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+}
+
+/* Subtítulo do cabeçalho */
+header p {
+  font-size: 1rem;
+  opacity: 0.95;
+  font-weight: 300;
+}
+
+/* =========================================================
+ 🧱 ESTRUTURA PRINCIPAL
+========================================================= */
+.container {
+  width: 100%;
+  max-width: 550px;
+  margin: 30px auto;
+  padding: 0 15px;
+}
+
+/* =========================================================
+ 🪙 SEÇÕES / CARDS
+========================================================= */
+section {
+  background: var(--card-bg);
+  backdrop-filter: blur(8px);
+  padding: 22px 24px;
+  border-radius: var(--radius);
+  margin-bottom: 22px;
+  box-shadow: 0 4px 20px var(--shadow);
+  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+section:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45);
+}
+
+h2 {
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-shadow: 0 0 8px rgba(0, 198, 255, 0.5);
+}
+
+h2::before {
+  content: "◆";
+  color: var(--accent);
+  font-size: 1rem;
+}
+
+/* =========================================================
+ 💰 SALDO
+========================================================= */
+#balance {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--success);
+  margin-top: 8px;
+  text-shadow: 0 0 10px rgba(6, 214, 160, 0.6);
+  transition: var(--transition);
+}
+
+/* =========================================================
+ 🧾 FORMULÁRIOS
+========================================================= */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+input {
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  transition: var(--transition);
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 10px rgba(0, 198, 255, 0.4);
+  outline: none;
+}
+
+/* =========================================================
+ 🧩 BOTÕES
+========================================================= */
+button {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: var(--transition);
+}
+
+button:hover {
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(0, 198, 255, 0.5);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* =========================================================
+ 📤 FORMULÁRIO DE SAÍDA
+========================================================= */
+.form-section.saida {
+  border: 1px solid rgba(255, 0, 72, 0.2);
+  background: rgba(239, 35, 60, 0.07);
+}
+
+.form-section.saida h2 {
+  color: var(--danger);
+  text-shadow: 0 0 10px rgba(239, 35, 60, 0.6);
+}
+
+.form-section.saida button {
+  background: linear-gradient(135deg, var(--danger), #b5179e);
+  box-shadow: 0 0 10px rgba(239, 35, 60, 0.3);
+}
+
+.form-section.saida button:hover {
+  background: linear-gradient(135deg, #ff477e, var(--danger));
+  box-shadow: 0 0 20px rgba(239, 35, 60, 0.5);
+}
+
+/* =========================================================
+ 📊 RESUMO
+========================================================= */
+.summary-section {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  gap: 10px;
+}
+
+.summary-section div {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius);
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  transition: var(--transition);
+}
+
+.summary-section div:hover {
+  transform: translateY(-3px);
+}
+
+.summary-section h3 {
+  font-size: 1rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+#income {
+  color: var(--success);
+  font-size: 1.3rem;
+  text-shadow: 0 0 8px rgba(6, 214, 160, 0.5);
+}
+
+#expenses {
+  color: var(--danger);
+  font-size: 1.3rem;
+  text-shadow: 0 0 8px rgba(239, 35, 60, 0.5);
+}
+
+/* =========================================================
+ 📋 LISTA DE TRANSAÇÕES
+========================================================= */
+ul {
+  list-style: none;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: var(--transition);
+  color: #f1f1f1;
+}
+
+li:hover {
+  transform: scale(1.02);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+li.income {
+  border-left: 5px solid var(--success);
+  color: var(--success);
+  text-shadow: 0 0 6px rgba(6, 214, 160, 0.5);
+}
+
+li.expense {
+  border-left: 5px solid var(--danger);
+  color: var(--danger);
+  text-shadow: 0 0 6px rgba(239, 35, 60, 0.5);
+}
+
+/* =========================================================
+ ⚙️ BOTÃO LIMPAR HISTÓRICO
+========================================================= */
+#clear {
+  width: 100%;
+  background: linear-gradient(135deg, var(--danger), #b5179e);
+  margin-top: 15px;
+}
+
+#clear:hover {
+  background: linear-gradient(135deg, #ff477e, var(--danger));
+  box-shadow: 0 0 20px rgba(239, 35, 60, 0.4);
+}
+
+/* =========================================================
+ 🦶 RODAPÉ
+========================================================= */
+footer {
+  text-align: center;
+  padding: 25px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: auto;
+  opacity: 0.8;
+}
+
+/* =========================================================
+ ✨ ANIMAÇÕES
+========================================================= */
+@keyframes glow {
+  0% { box-shadow: 0 0 5px rgba(0, 198, 255, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(0, 198, 255, 0.6); }
+  100% { box-shadow: 0 0 5px rgba(0, 198, 255, 0.3); }
+}
+
+button:hover,
+#balance {
+  animation: glow 2s infinite ease-in-out;
+}
+
+/* =========================================================
+ 📱 RESPONSIVIDADE
+========================================================= */
+@media (max-width: 480px) {
+  section {
+    padding: 18px;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+  }
+
+  #balance {
+    font-size: 2rem;
+  }
+
+  button {
+    font-size: 0.95rem;
+  }
+}
